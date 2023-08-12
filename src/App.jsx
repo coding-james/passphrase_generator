@@ -1,21 +1,48 @@
-import './App.css';
+import React from "react";
+import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
+import { Container, Row, Col, Nav, Navbar } from "react-bootstrap";
+import 'bootstrap/dist/css/bootstrap.min.css';
+
+//Components
+import Home from './components/Home';
+import Generator from './components/Generator';
+import Tips from './components/Tips';
 
 function App() {
   return (
-    <div>
-      <header>
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <Navbar className="navbar navbar-dark bg-dark">
+        <Container>
+          <Navbar.Brand>Privacy and Security Tips</Navbar.Brand>
+
+          <Nav>
+            <Nav.Item>
+              <Link to="/" className="nav-link">Home</Link>
+            </Nav.Item>
+            <Nav.Item>
+              <Link to="/generator" className="nav-link">Generator</Link>
+            </Nav.Item>
+            <Nav.Item>
+              <Link to="/tips" className="nav-link">Tips</Link>
+            </Nav.Item>
+          </Nav>
+        </Container>
+      </Navbar>
+
+      <Container>
+        <Row>
+          <Col md={12}>
+            <div className="wrapper">
+              <Routes>
+                <Route path="/" element={<Home />} />
+                <Route path="/generator" element={<Generator />} />
+                <Route path="/tips" element={<Tips />} />
+              </Routes>
+            </div>
+          </Col>
+        </Row>
+      </Container>
+    </Router>
   );
 }
 
