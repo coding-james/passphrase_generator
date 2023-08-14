@@ -3,52 +3,60 @@ const { assert, expect } = require("chai");
 const { GeneratePass, RandomNumber, UseList, SelectItem, Shuffle } = require("../../src/components/generator-code");
 const actors = require("../../src/components/resources/actors.json");
 const movies = require("../../src/components/resources/movies.json");
+const colours = require("../../src/components/resources/colours.json");
+const animals = require("../../src/components/resources/animals.json");
+
+// TODO: https://www.pluralsight.com/guides/unit-test-react-component-mocha
+// TODO: SHUFFLE TEST - If array run 20 times, more than 1 should not match original order
 
 describe("Passphrase Generator", () => {
 
     const tests = [
-        { inputList1: "actors", inputList2: "movies", inputNum: "Y", inputSym: "N" },
-        { inputList1: "actors", inputList2: "movies", inputNum: "N", inputSym: "Y" },
-        { inputList1: "actors", inputList2: "movies", inputNum: "Y", inputSym: "Y" },
-        { inputList1: ["cat", "dog", "hippo", "penguin", "lion", "tiger", "seagull"], inputList2: ["red", "yellow", "green", "blue", "purple"], inputNum: "Y", inputSym: "Y" },
-        { inputList1: "actors", inputList2: "movies", inputNum: "Y", inputSym: "Y" },
-        { inputList1: "actors", inputList2: "movies", inputNum: "Y", inputSym: "Y" }
+        { inputList1: "actors", inputList2: "movies", inputList3: "noThirdList", inputNum: "Y", inputSym: "N" },
+        { inputList1: "actors", inputList2: "movies", inputList3: "noThirdList", inputNum: "N", inputSym: "Y" },
+        { inputList1: "actors", inputList2: "movies", inputList3: "noThirdList", inputNum: "Y", inputSym: "Y" },
+        { inputList1: ["cat", "dog", "hippo", "penguin", "lion", "tiger", "seagull"], inputList2: ["red", "yellow", "green", "blue", "purple"], inputList3: "noThirdList", inputNum: "Y", inputSym: "Y" },
+        { inputList1: "actors", inputList2: "movies", inputList3: "noThirdList", inputNum: "Y", inputSym: "Y" },
+        { inputList1: "actors", inputList2: "movies", inputList3: "noThirdList", inputNum: "Y", inputSym: "Y" },
+        { inputList1: "colours", inputList2: "movies", inputList3: "noThirdList", inputNum: "Y", inputSym: "Y" },
+        { inputList1: "animals", inputList2: "movies", inputList3: "noThirdList", inputNum: "Y", inputSym: "Y" },
+        { inputList1: "actors", inputList2: "movies", inputList3: "colours", inputNum: "Y", inputSym: "Y" }
     ]
 
-    tests.forEach(({ inputList1, inputList2, inputNum, inputSym }) => {
-        const result = GeneratePass(inputList1, inputList2, inputNum, inputSym);
+    tests.forEach(({ inputList1, inputList2, inputList3, inputNum, inputSym }) => {
+        const result = GeneratePass(inputList1, inputList2, inputList3, inputNum, inputSym);
         it(`DATATYPE: Should return a String. RESULT: ${result}`, () => {
             assert.isString(result);
         })
     });
 
     // test it should contain a number
-    tests.forEach(({ inputList1, inputList2, inputSym }) => {
-        const result = GeneratePass(inputList1, inputList2, "Y", inputSym);
+    tests.forEach(({ inputList1, inputList2, inputList3, inputSym }) => {
+        const result = GeneratePass(inputList1, inputList2, inputList3, "Y", inputSym);
         it(`DATATYPE: Should include a number. RESULT: ${result}`, () => {
             expect(result).to.match(/[0-9]/gi);
         })
     });
 
     // test it should not contain a number
-    tests.forEach(({ inputList1, inputList2, inputSym }) => {
-        const result = GeneratePass(inputList1, inputList2, "N", inputSym);
+    tests.forEach(({ inputList1, inputList2, inputList3, inputSym }) => {
+        const result = GeneratePass(inputList1, inputList2, inputList3, "N", inputSym);
         it(`DATATYPE: Should NOT include a number. RESULT: ${result}`, () => {
             expect(result).to.not.match(/[0-9]/gi);
         })
     });
 
     // test it does contain a symbol
-    tests.forEach(({ inputList1, inputList2, inputNum }) => {
-        const result = GeneratePass(inputList1, inputList2, inputNum, "Y");
+    tests.forEach(({ inputList1, inputList2, inputList3, inputNum }) => {
+        const result = GeneratePass(inputList1, inputList2, inputList3, inputNum, "Y");
         it(`DATATYPE: Should include a symbol. RESULT:${result}`, () => {
             expect(result).to.match(/[^a-z0-9]/gi);
         })
     });
 
     // test it does not contain a symbol
-    tests.forEach(({ inputList1, inputList2, inputNum }) => {
-        const result = GeneratePass(inputList1, inputList2, inputNum, "N");
+    tests.forEach(({ inputList1, inputList2, inputList3, inputNum }) => {
+        const result = GeneratePass(inputList1, inputList2, inputList3, inputNum, "N");
         it(`DATATYPE: Should NOT include a symbol. RESULT: ${result}`, () => {
             expect(result).to.not.match(/[^a-z0-9]/gi);
         })
@@ -89,6 +97,8 @@ describe("UseList", () => {
         { input: "actors", expect: actors },
         { input: "movies", expect: movies },
         { input: ["Ford", "Volkswagen", "SEAT"], expect: ["Ford", "Volkswagen", "SEAT"] },
+        { input: "colours", expect: colours },
+        { input: "animals", expect: animals }
     ]
 
     tests.forEach(({ input }) => {
@@ -109,7 +119,9 @@ describe("SelectItem", () => {
         { inputList: ["test word"], inputElementIndex: 0, inputUpper: 1 },
         { inputList: actors, inputElementIndex: 1, inputUpper: 1 },
         { inputList: movies, inputElementIndex: 2, inputUpper: 1 },
-        { inputList: ["Ford", "Volkswagen", "SEAT"], inputElementIndex: 1, inputUpper: 1 }
+        { inputList: ["Ford", "Volkswagen", "SEAT"], inputElementIndex: 1, inputUpper: 1 },
+        { inputList: colours, inputElementIndex: 1, inputUpper: 1 },
+        { inputList: animals, inputElementIndex: 1, inputUpper: 1 }
     ]
 
     tests.forEach(({ inputList, inputElementIndex, inputUpper }) => {

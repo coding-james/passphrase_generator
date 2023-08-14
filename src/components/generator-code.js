@@ -1,18 +1,25 @@
 const actors = require("./resources/actors.json");
 const movies = require("./resources/movies.json");
 const symbols = require("./resources/symbols.json");
+const colours = require("./resources/colours.json");
+const animals = require("./resources/animals.json");
 
-function GeneratePass(list1, list2, includeNum, includeSym) {
+function GeneratePass(list1, list2, list3, includeNum, includeSym) {
     let digitArr = [10, 100, 1000];
     let upper = RandomNumber(1, 2.9);
-    let elementsOrder = Shuffle(["list1", "list2"]);
+    let elementsOrder = Shuffle(["list1", "list2", "list3"]);
 
     list1 = UseList(list1);
     list2 = UseList(list2);
+    list3 = UseList(list3);
 
     // Build Passphrase
     if (list2 === "noSecondList") {
-        elementsOrder.splice(elementsOrder.indexOf("list2"), 1);    
+        elementsOrder.splice(elementsOrder.indexOf("list2"), 1);
+    }
+
+    if (list3 === "noThirdList") {
+        elementsOrder.splice(elementsOrder.indexOf("list3"), 1);
     }
 
     // get word from list 1
@@ -23,6 +30,12 @@ function GeneratePass(list1, list2, includeNum, includeSym) {
     if (list2 !== "noSecondList") {
         let word2 = SelectItem(list2, elementsOrder.indexOf("list2"), upper);;
         elementsOrder[elementsOrder.indexOf("list2")] = word2;
+    }
+
+    // get word from list 3
+    if (list3 !== "noThirdList") {
+        let word3 = SelectItem(list3, elementsOrder.indexOf("list3"), upper);
+        elementsOrder[elementsOrder.indexOf("list3")] = word3;
     }
 
     // check if number is to be included, get a random number to determine number of digits, get random number based on the required digits then replace array element
@@ -76,6 +89,12 @@ function UseList(list) {
         case "movies":
             list = movies;
             break;
+        case "colours":
+            list = colours;
+            break;
+        case "animals":
+            list = animals;
+            break;
         default:
             break;
     }
@@ -85,7 +104,7 @@ function UseList(list) {
 
 // Select random word from selected list
 function SelectItem(list, elementIndex, upper) {
-    if(((elementIndex === 0 || elementIndex === 2) && upper === 1) || (elementIndex === 1 && upper === 2)) {
+    if (((elementIndex === 0 || elementIndex === 2) && upper === 1) || (elementIndex === 1 && upper === 2)) {
         return list[RandomNumber(0, list.length)].toUpperCase();
     } else {
         return list[RandomNumber(0, list.length)].toLowerCase();

@@ -8,6 +8,7 @@ const Generator = () => {
 
     const [list1, setList1] = useState("actors");
     const [list2, setList2] = useState("movies");
+    const [list3, setList3] = useState("noThirdList");
     const [includeNum, setIncludeNum] = useState("Y");
     const [includeSym, setIncludeSym] = useState("Y");
     const [passphrase, setPassphrase] = useState("This will be replaced once you submit");
@@ -15,7 +16,7 @@ const Generator = () => {
 
     const Generate = (e) => {
         e.preventDefault();
-        setPassphrase(GeneratePass(list1, list2, includeNum, includeSym));
+        setPassphrase(GeneratePass(list1, list2, list3, includeNum, includeSym));
     };
 
     return (
@@ -41,6 +42,8 @@ const Generator = () => {
                     <Form.Select value={list1} onChange={(e) => setList1(e.target.value)}>
                         <option value="actors">Actors</option>
                         <option value="movies">Movies</option>
+                        <option value="animals">Animals</option>
+                        <option value="colours">Colours</option>
                         {/* <option value="custom">Custom</option> */}
                     </Form.Select>
                 </Form.Group>
@@ -50,8 +53,22 @@ const Generator = () => {
                     <Form.Select value={list2} onChange={(e) => setList2(e.target.value)}>
                         <option value="actors">Actors</option>
                         <option value="movies">Movies</option>
+                        <option value="animals">Animals</option>
+                        <option value="colours">Colours</option>
                         {/* <option value="custom">Custom</option> */}
                         <option value="noSecondList">No Second List</option>
+                    </Form.Select>
+                </Form.Group>
+
+                <Form.Group className="mb-3">
+                    <Form.Label> Select third list to use: </Form.Label>
+                    <Form.Select value={list3} onChange={(e) => setList3(e.target.value)}>
+                        <option value="actors">Actors</option>
+                        <option value="movies">Movies</option>
+                        <option value="animals">Animals</option>
+                        <option value="colours">Colours</option>
+                        {/* <option value="custom">Custom</option> */}
+                        <option value="noThirdList">No Third List</option>
                     </Form.Select>
                 </Form.Group>
 
