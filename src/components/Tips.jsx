@@ -1,5 +1,10 @@
 import { Link } from 'react-router-dom';
 import Badge from 'react-bootstrap/Badge';
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
+import UsefulSiteResults from "./UsefulSiteResults";
+import SitesList from "./resources/useful-sites.json";
 
 
 const Tips = () => {
@@ -18,7 +23,23 @@ const Tips = () => {
             <br />
 
             <h3>Useful Sites</h3>
-            <p>PLACE HOLDER</p>
+            <Container>
+                <Row>
+                    <Col>
+                        <div class="row row-cols-3 g-4">
+                            {
+                                SitesList.map(site => (
+                                    <UsefulSiteResults
+                                        name={site.name}
+                                        description={site.description}
+                                        url={site.url}
+                                    />
+                                ))
+                            }
+                        </div>
+                    </Col>
+                </Row>
+            </Container>
         </>
     )
 }

@@ -1,0 +1,32 @@
+[
+    {
+        "name": "have i been pwned?",
+        "url": "https://haveibeenpwned.com/",
+        "description": "allows you to check if your email or phone can be found in various data leaks and check for common passwords found in breaches"
+    },
+    {
+        "name": "NCSC: Staying Safe Online",
+        "url": "https://www.ncsc.gov.uk/collection/top-tips-for-staying-secure-online",
+        "description": "Tips to ensure you are doing all you can to secure you and your family online from the National Cyber Security Centre (NCSC)"
+    },
+    {
+        "name": "KeePass: Password Manager",
+        "url": "https://keepass.info/",
+        "description": "free, open source, light-weight and easy-to-use password manager."
+    },
+    {
+        "name": "Firefox: Web Browser",
+        "url": "https://www.mozilla.org/en-GB/",
+        "description": "Privacy focused web browser"
+    },
+    {
+        "name": "uBlock Origin: ",
+        "url": "https://github.com/gorhill/uBlock",
+        "description": "Free and open-source browser extension for content filtering, including ad blocking. The extension is available for Chrome, Chromium, Edge, Firefox, Opera, Pale Moon, as well as versions of Safari prior to 13"
+    },
+    {
+        "name": "Duck Duck Go",
+        "url": "https://duckduckgo.com/",
+        "description": "Privacy focused search engine. Also The DuckDuckGo app includes Web and App Tracking Protection, Smarter Encryption, Private Search, Email Protection, and more"
+    }
+]
