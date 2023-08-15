@@ -3,6 +3,8 @@ import { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import GeneratePass from './generator-code';
+import ListOptions from './ListOptions';
+import optionsList from './resources/optionsList.json';
 
 const Generator = () => {
 
@@ -40,10 +42,13 @@ const Generator = () => {
                 <Form.Group className="mb-3">
                     <Form.Label> Select first list to use: </Form.Label>
                     <Form.Select value={list1} onChange={(e) => setList1(e.target.value)}>
-                        <option value="actors">Actors</option>
-                        <option value="movies">Movies</option>
-                        <option value="animals">Animals</option>
-                        <option value="colours">Colours</option>
+                        {
+                            optionsList.map(option => (
+                                <ListOptions
+                                    value={option}
+                                />
+                            ))
+                        }
                         {/* <option value="custom">Custom</option> */}
                     </Form.Select>
                 </Form.Group>
@@ -51,10 +56,13 @@ const Generator = () => {
                 <Form.Group className="mb-3">
                     <Form.Label> Select second list to use: </Form.Label>
                     <Form.Select value={list2} onChange={(e) => setList2(e.target.value)}>
-                        <option value="actors">Actors</option>
-                        <option value="movies">Movies</option>
-                        <option value="animals">Animals</option>
-                        <option value="colours">Colours</option>
+                        {
+                            optionsList.map(option => (
+                                <ListOptions
+                                    value={option}
+                                />
+                            ))
+                        }
                         {/* <option value="custom">Custom</option> */}
                         <option value="noSecondList">No Second List</option>
                     </Form.Select>
@@ -63,10 +71,13 @@ const Generator = () => {
                 <Form.Group className="mb-3">
                     <Form.Label> Select third list to use: </Form.Label>
                     <Form.Select value={list3} onChange={(e) => setList3(e.target.value)}>
-                        <option value="actors">Actors</option>
-                        <option value="movies">Movies</option>
-                        <option value="animals">Animals</option>
-                        <option value="colours">Colours</option>
+                        {
+                            optionsList.map(option => (
+                                <ListOptions
+                                    value={option}
+                                />
+                            ))
+                        }
                         {/* <option value="custom">Custom</option> */}
                         <option value="noThirdList">No Third List</option>
                     </Form.Select>
