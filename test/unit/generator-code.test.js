@@ -135,14 +135,15 @@ describe("SelectItem", () => {
         })
     });
 
-    // tests.forEach(({ inputList }) => {
-    //     // Map inputList to an array, making each element UpperCase
-    //     // Make result Uppercase to
-    //     const result = SelectItem(inputList, 1, 0);
-    //     it(`${result} should be included within Array List`, () => {
-    //         expect(inputList).to.include(result);
-    //     })
-    // });
+    // test that returned word is included in inputList
+    tests.forEach(({ inputList }) => {
+        // Map inputList to an array, making each element UpperCase
+        const inputListUpper = inputList.map(item => item.toUpperCase());
+        const result = SelectItem(inputList, 1, 0).toUpperCase();
+        it(`${result} should be included within Array List`, () => {
+            expect(inputListUpper).to.include(result);
+        })
+    });
 
     // test that the returned word from list is uppercase - index 0
     tests.forEach(({ inputList }) => {
