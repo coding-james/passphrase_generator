@@ -7,7 +7,7 @@ function UsefulSiteResults({name, url, description}) {
             <Card.Body>
                 <Card.Title>{name}</Card.Title>
                 <Card.Text>{description}</Card.Text>
-                <Card.Link href={url} target="_blank"><Button variant="success">Visit Site</Button></Card.Link>
+                <Card.Link href={url} target="_blank" rel="noreferrer"><Button variant="success">Visit Site</Button></Card.Link>
             </Card.Body>
         </Card>
     )
