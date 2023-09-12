@@ -1,6 +1,6 @@
 function ListOptions({ value }) {
     return (
-        <option value={value}>{value}</option>
+        <option value={value.toLowerCase()}>{value}</option>
     )
 }
 

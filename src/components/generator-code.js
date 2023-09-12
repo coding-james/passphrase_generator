@@ -82,7 +82,7 @@ function Shuffle(array) {
 };
 
 function UseList(list) {
-    switch (list.toLowerCase()) {
+    switch (list.toString().toLowerCase()) {
         case "actors":
             list = actors;
             break;
