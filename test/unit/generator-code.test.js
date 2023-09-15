@@ -33,7 +33,7 @@ describe("Passphrase Generator", () => {
     // test it should contain a number
     tests.forEach(({ inputList1, inputList2, inputList3, inputSym }) => {
         const result = GeneratePass(inputList1, inputList2, inputList3, "Y", inputSym);
-        it(`DATATYPE: Should include a number. RESULT: ${result}`, () => {
+        it(`It should include a number. RESULT: ${result}`, () => {
             expect(result).to.match(/[0-9]/gi);
         })
     });
@@ -41,7 +41,7 @@ describe("Passphrase Generator", () => {
     // test it should not contain a number
     tests.forEach(({ inputList1, inputList2, inputList3, inputSym }) => {
         const result = GeneratePass(inputList1, inputList2, inputList3, "N", inputSym);
-        it(`DATATYPE: Should NOT include a number. RESULT: ${result}`, () => {
+        it(`It should NOT include a number. RESULT: ${result}`, () => {
             expect(result).to.not.match(/[0-9]/gi);
         })
     });
@@ -49,7 +49,7 @@ describe("Passphrase Generator", () => {
     // test it does contain a symbol
     tests.forEach(({ inputList1, inputList2, inputList3, inputNum }) => {
         const result = GeneratePass(inputList1, inputList2, inputList3, inputNum, "Y");
-        it(`DATATYPE: Should include a symbol. RESULT:${result}`, () => {
+        it(`It should include a symbol. RESULT:${result}`, () => {
             expect(result).to.match(/[^a-z0-9]/gi);
         })
     });
@@ -57,7 +57,7 @@ describe("Passphrase Generator", () => {
     // test it does not contain a symbol
     tests.forEach(({ inputList1, inputList2, inputList3, inputNum }) => {
         const result = GeneratePass(inputList1, inputList2, inputList3, inputNum, "N");
-        it(`DATATYPE: Should NOT include a symbol. RESULT: ${result}`, () => {
+        it(`It should NOT include a symbol. RESULT: ${result}`, () => {
             expect(result).to.not.match(/[^a-z0-9]/gi);
         })
     });
