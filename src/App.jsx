@@ -4,9 +4,9 @@ import { Container, Row, Col, Nav, Navbar } from "react-bootstrap";
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 //Components
-import Home from './components/Home';
-import Generator from './components/Generator';
-import Tips from './components/Tips';
+import Home from './components/Home.jsx';
+import Generator from './components/Generator.jsx';
+import Tips from './components/Tips.jsx';
 
 function App() {
   return (

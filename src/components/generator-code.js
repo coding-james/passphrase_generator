@@ -111,5 +111,4 @@ function SelectItem(list, elementIndex, upper) {
     }
 };
 
-// module.exports = { GeneratePass, RandomNumber, Shuffle, UseList, SelectItem };
-export default GeneratePass;
+module.exports = { GeneratePass, RandomNumber, Shuffle, UseList, SelectItem };

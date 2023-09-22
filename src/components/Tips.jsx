@@ -13,7 +13,7 @@ const Tips = () => {
         <>
             <br />
             <h2>Tips and Useful Sites</h2>
-            <hr class="border border-success border-2 opacity-75"></hr>
+            <hr className="border border-success border-2 opacity-75"></hr>
             <h3>Tips</h3>
             <ul>
                 <li>Use a different password for every website and app</li>
@@ -26,7 +26,7 @@ const Tips = () => {
             <Container>
                 <Row>
                     <Col>
-                        <div class="row row-cols-3 g-4">
+                        <div className="row row-cols-3 g-4">
                             {
                                 SitesList.map(site => (
                                     <UsefulSiteResults

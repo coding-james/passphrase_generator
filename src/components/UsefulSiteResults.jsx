@@ -1,7 +1,7 @@
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
 
-function UsefulSiteResults({name, url, description}) {
+function UsefulSiteResults({ name, url, description }) {
     return (
         <Card style={{ width: '18rem' }}>
             <Card.Body>
