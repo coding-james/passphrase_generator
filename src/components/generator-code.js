@@ -82,7 +82,7 @@ function Shuffle(array) {
 };
 
 function UseList(list) {
-    switch (list) {
+    switch (list.toString().toLowerCase()) {
         case "actors":
             list = actors;
             break;
@@ -111,5 +111,4 @@ function SelectItem(list, elementIndex, upper) {
     }
 };
 
-// module.exports = { GeneratePass, RandomNumber, Shuffle, UseList, SelectItem };
-export default GeneratePass;
+module.exports = { GeneratePass, RandomNumber, Shuffle, UseList, SelectItem };
