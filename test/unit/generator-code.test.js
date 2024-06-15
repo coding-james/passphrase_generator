@@ -1,12 +1,11 @@
 "use strict";
 import { assert, expect } from "chai";
 import { GeneratePass, RandomNumber, UseList, SelectItem, Shuffle } from "../../src/components/generator-code.js";
-import { createRequire } from 'node:module';
-const require = createRequire(import.meta.url);
-const actors = require("../../src/components/resources/actors.json");
-const movies = require("../../src/components/resources/movies.json");
-const colours = require("../../src/components/resources/colours.json");
-const animals = require("../../src/components/resources/animals.json");
+import actors from "../../src/components/resources/actors.json" assert { type: 'json' };
+import movies from "../../src/components/resources/movies.json" assert { type: 'json' };
+import symbols from "../../src/components/resources/symbols.json" assert { type: 'json' };
+import colours from "../../src/components/resources/colours.json" assert { type: 'json' };
+import animals from "../../src/components/resources/animals.json" assert { type: 'json' };
 
 // TODO: https://www.pluralsight.com/guides/unit-test-react-component-mocha
 

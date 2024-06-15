@@ -1,17 +1,8 @@
-import actors from "./resources/actors.json";
-import movies from "./resources/movies.json";
-import symbols from "./resources/symbols.json";
-import colours from "./resources/colours.json";
-import animals from "./resources/animals.json";
-
-// TODO: figure out how to run test but not break live version
-// import { createRequire } from 'node:module';
-// const require = createRequire(import.meta.url);
-// const actors = require("./resources/actors.json");
-// const movies = require("./resources/movies.json");
-// const symbols = require("./resources/symbols.json");
-// const colours = require("./resources/colours.json");
-// const animals = require("./resources/animals.json");
+import actors from "./resources/actors.json" assert { type: 'json' };
+import movies from "./resources/movies.json" assert { type: 'json' };
+import symbols from "./resources/symbols.json" assert { type: 'json' };
+import colours from "./resources/colours.json" assert { type: 'json' };
+import animals from "./resources/animals.json" assert { type: 'json' };
 
 export function GeneratePass(list1, list2, list3, includeNum, includeSym) {
     let digitArr = [10, 100, 1000];
