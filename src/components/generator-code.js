@@ -1,10 +1,19 @@
-const actors = require("./resources/actors.json");
-const movies = require("./resources/movies.json");
-const symbols = require("./resources/symbols.json");
-const colours = require("./resources/colours.json");
-const animals = require("./resources/animals.json");
+import actors from "./resources/actors.json";
+import movies from "./resources/movies.json";
+import symbols from "./resources/symbols.json";
+import colours from "./resources/colours.json";
+import animals from "./resources/animals.json";
 
-function GeneratePass(list1, list2, list3, includeNum, includeSym) {
+// TODO: figure out how to run test but not break live version
+// import { createRequire } from 'node:module';
+// const require = createRequire(import.meta.url);
+// const actors = require("./resources/actors.json");
+// const movies = require("./resources/movies.json");
+// const symbols = require("./resources/symbols.json");
+// const colours = require("./resources/colours.json");
+// const animals = require("./resources/animals.json");
+
+export function GeneratePass(list1, list2, list3, includeNum, includeSym) {
     let digitArr = [10, 100, 1000];
     let upper = RandomNumber(1, 2.9);
     let elementsOrder = Shuffle(["list1", "list2", "list3"]);
@@ -58,12 +67,12 @@ function GeneratePass(list1, list2, list3, includeNum, includeSym) {
 }
 
 // Random Number Generator
-function RandomNumber(min, max) {
+export function RandomNumber(min, max) {
     return Math.floor(Math.random() * (max - min) + min);
 }
 
 // Fisher–Yates Shuffle - https://stackoverflow.com/questions/2450954/how-to-randomize-shuffle-a-javascript-array and https://bost.ocks.org/mike/shuffle/
-function Shuffle(array) {
+export function Shuffle(array) {
     let currentIndex = array.length, randomIndex;
 
     // While there remain elements to shuffle.
@@ -81,7 +90,7 @@ function Shuffle(array) {
     return array;
 };
 
-function UseList(list) {
+export function UseList(list) {
     switch (list.toString().toLowerCase()) {
         case "actors":
             list = actors;
@@ -103,7 +112,7 @@ function UseList(list) {
 };
 
 // Select random word from selected list
-function SelectItem(list, elementIndex, upper) {
+export function SelectItem(list, elementIndex, upper) {
     if (((elementIndex === 0 || elementIndex === 2) && upper === 1) || (elementIndex === 1 && upper === 2)) {
         return list[RandomNumber(0, list.length)].toUpperCase();
     } else {
@@ -111,4 +120,4 @@ function SelectItem(list, elementIndex, upper) {
     }
 };
 
-module.exports = { GeneratePass, RandomNumber, Shuffle, UseList, SelectItem };
+// module.exports = { GeneratePass, RandomNumber, Shuffle, UseList, SelectItem };

@@ -15,7 +15,7 @@
 <br />
 <div align="center">
   <a href="https://github.com/coding-james/passphrase_generator">
-    <img src="readme_images/codingBlue.png" alt="Logo" width="150" height="150">
+    <img src="src/assets/codingBlue.png" alt="Logo" width="150" height="150">
   </a>
 
 <h3 align="center">Passphrase Generator</h3>
@@ -83,7 +83,7 @@ This is an example of how to list things you need to use the software and how to
 
 1. Run the WebApp from the root
    ```sh
-   npm start
+   npm run dev
    ```
 
 2. Click Passphrase Generator to go to the generator

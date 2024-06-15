@@ -1,6 +1,8 @@
 "use strict";
-const { assert, expect } = require("chai");
-const { GeneratePass, RandomNumber, UseList, SelectItem, Shuffle } = require("../../src/components/generator-code");
+import { assert, expect } from "chai";
+import { GeneratePass, RandomNumber, UseList, SelectItem, Shuffle } from "../../src/components/generator-code.js";
+import { createRequire } from 'node:module';
+const require = createRequire(import.meta.url);
 const actors = require("../../src/components/resources/actors.json");
 const movies = require("../../src/components/resources/movies.json");
 const colours = require("../../src/components/resources/colours.json");

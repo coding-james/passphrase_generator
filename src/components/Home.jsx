@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
-import bannerImage from "../images/codeImage.png";
-import passphraseImage from "../images/terminalAltWhite.svg";
-import infoImage from "../images/infoAltWhite.svg";
+import bannerImage from "../assets/codeImage.png";
+import passphraseImage from "../assets/terminalAltWhite.svg";
+import infoImage from "../assets/infoAltWhite.svg";
 import Image from "react-bootstrap/Image";
 import Container from "react-bootstrap/Container";
 
